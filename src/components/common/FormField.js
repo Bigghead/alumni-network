@@ -4,11 +4,11 @@ export default function FormField({ label, onChange, value, type, name, errors }
   return (
     <div className="required field">
       <label>{label}</label>
-      <input 
-        onChange={onChange} 
-        value={value} 
-        type={type} 
-        name={name} 
+      <input
+        onChange={onChange}
+        value={value}
+        type={type}
+        name={name}
         placeholder={label}
       />
       <div className="ui error message">

@@ -9,7 +9,7 @@ class LoginComponent extends Component {
     return (
       <div className="loginComponent">
         <h2>Login</h2>
-        
+
         <button onClick={this.handleClick}>Github</button>
       </div>
     )

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import firstReducer from './reducers/firstReducer';
 
-export default combineReducers({ 
+export default combineReducers({
   firstReducer
 });
