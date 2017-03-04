@@ -32,7 +32,7 @@ app.get('/auth/github', passport.authenticate('github'));
 
 app.get('/auth/github/callback', passport.authenticate('github'), ((req, res) => {
   //successfull authentication from github
-  //make token 
+  //make token
   res.send('Successful login');
 }))
 
