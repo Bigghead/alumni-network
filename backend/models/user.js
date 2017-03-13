@@ -11,7 +11,7 @@ const User = new Schema({
     verifiedUser: Boolean,
     memberSince: { type: Date, default: Date.now },
 
-    //This comes from the State in Dashoboard.js
+    //This comes from the State in Dashboard.js
     projects: Array,
     interests: Array,
     skills: Array,
