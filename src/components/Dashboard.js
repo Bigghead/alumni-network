@@ -18,6 +18,7 @@ class Dashboard extends React.Component {
     ],
     interests: [],
     skills: [],
+    certs: [],
     mentor: false,
   }
 

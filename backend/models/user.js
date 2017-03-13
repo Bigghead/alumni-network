@@ -15,7 +15,6 @@ const User = new Schema({
     projects: Array,
     interests: Array,
     skills: Array,
-    certs: Array,
     mentor: Boolean
 });
 
