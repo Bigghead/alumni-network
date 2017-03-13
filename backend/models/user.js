@@ -9,7 +9,14 @@ const User = new Schema({
     fccCerts: Object,
     email: { type: String, lowercase: true },
     verifiedUser: Boolean,
-    memberSince: { type: Date, default: Date.now }
+    memberSince: { type: Date, default: Date.now },
+
+    //This comes from the State in Dashoboard.js
+    projects: Array,
+    interests: Array,
+    skills: Array,
+    certs: Array,
+    mentor: Boolean
 });
 
 export default mongoose.model('User', User);
