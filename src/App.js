@@ -1,25 +1,28 @@
-import React, {Component} from 'react';
-import { Route, NavLink } from 'react-router-dom';
-import LoginComponent from './components/nav/Login';
-import HomePage from './components/navbar/HomePage';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import LoginPage from './components/LoginPage';
+import HomePage from './components/HomePage';
+import PassportPage from './components/PassportPage';
+import Dashboard from './components/Dashboard';
+import NavBar from './components/Navbar';
+import FlashMessagesList from './components/flash/FlashMessagesList';
+import requireAuth from './utils/requireAuth';
 import './styles/App.css';
 
-class App extends Component {
+class App extends React.Component {
     render() {
         return (
-            <div>
-                <nav>
-                  <div className="nav-wrapper teal">
-                      <a href="#">Home</a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
-                      <a href="#">Login</a>
-                    </ul>
-                  </div>
-                </nav>
+          <div>
 
-                <LoginComponent />
+            <NavBar />
+            <FlashMessagesList />
 
-            </div>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/verify_account" component={PassportPage} />
+            <Route path="/dashboard" component={requireAuth(Dashboard)} />
+
+          </div>
         );
     }
 }

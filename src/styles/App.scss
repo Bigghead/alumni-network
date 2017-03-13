@@ -1,17 +1,36 @@
+@import 'animations';
+@import 'helperClasses';
+
 .App {
   text-align: center;
   .App-logo {
     animation: App-logo-spin infinite 15s linear;
     margin-top: 100px;
+    margin-bottom: 20px;
   }
 }
-
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+// fcc FA icon in navbar
+.menu .fa-free-code-camp {
+  margin-right: 8px;
+} 
+
+.flash-message {
+  margin: 20px 0;
+}
+
+// login page:
+#login-form {
+  @extend .middle-aligned;
+  height: 500px;
+  position: absolute;
+}
+
+// need media query to remove arrow at width/height of approx 850 X 725
+#arrow-bounce {
+  animation: bouncey-arrow 1.5s infinite;
 }
