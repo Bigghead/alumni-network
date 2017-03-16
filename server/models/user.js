@@ -12,10 +12,11 @@ const User = new Schema({
     memberSince: { type: Date, default: Date.now },
 
     //This comes from the State in Dashboard.js
-    projects: Array,
-    interests: Array,
-    skills: Array,
-    mentor: Boolean
+    // projects: Array,
+    // interests: Array,
+    // skills: Array,
+    // mentor: Boolean
+    profileData: Object
 });
 
 export default mongoose.model('User', User);

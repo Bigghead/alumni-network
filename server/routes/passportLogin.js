@@ -27,9 +27,8 @@ passport.use(new Strategy({
   callbackURL: 'http://localhost:8080/auth/github/callback'
 }, (accesstoken, refreshToken, profile, done) => {
     User.findOne({ githubId: profile.id }, (err, user) => {
-
       if (err) return done(err);
-      
+
       if (!user) {
         // new registration: create and save user in database
         user = new User({
