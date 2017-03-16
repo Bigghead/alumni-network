@@ -1,6 +1,6 @@
 import React from 'react';
-import { getUserData, verifyUser, saveUser } from '../actions/loginActions';
-import { addFlashMessage } from '../actions/flashMessages';
+import { getUserData, verifyUser, saveUser } from '../../actions/loginActions';
+import { addFlashMessage } from '../../actions/flashMessages';
 import { connect } from 'react-redux';
 
 class PassportPage extends React.Component {
@@ -24,15 +24,14 @@ class PassportPage extends React.Component {
                 message: 'Welcome back to the app!'
               }
             });
-            this.props.history.push('/dashboard');
+            this.props.history.push('/dashboard/profile');
           } else {
             const { username, avatarUrl, _id } = res;
             this.setState({ username, avatarUrl, mongoId: _id });
           }
         }
       },
-      (err) => console.log // do something with error? display in UI?
-    );
+    ).catch(console.log); // do something with error? display in UI?
   }
 
   handleClick = (e) => {
@@ -97,7 +96,7 @@ class PassportPage extends React.Component {
 
 PassportPage.propTypes = {
   saveUser: React.PropTypes.func.isRequired,
-  addFlashMessage: React.PropTypes.isRequired
+  addFlashMessage: React.PropTypes.func.isRequired
 }
 
 export default connect(null, { saveUser, addFlashMessage })(PassportPage);

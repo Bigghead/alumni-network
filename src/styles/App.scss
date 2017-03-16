@@ -1,5 +1,8 @@
 @import 'animations';
 @import 'helperClasses';
+@import 'components/Dashboard';
+@import 'components/SliderToggle';
+@import 'components/ProfileStyles';
 
 .App {
   text-align: center;
@@ -17,7 +20,7 @@
 // fcc FA icon in navbar
 .menu .fa-free-code-camp {
   margin-right: 8px;
-} 
+}
 
 .flash-message {
   margin: 20px 0;
@@ -34,3 +37,4 @@
 #arrow-bounce {
   animation: bouncey-arrow 1.5s infinite;
 }
+

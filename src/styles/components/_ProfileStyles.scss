@@ -1,0 +1,59 @@
+#profile-page-main-container {
+  margin-bottom: 50px;
+}
+
+.folderDetail:hover {
+  cursor: pointer;
+  i.folder.icon {
+    color: white !important;
+  }
+}
+
+.profileWrapper, 
+.fccWrapper, 
+.mentorshipWrapper, 
+.skillsWrapper,
+.socialWrapper,
+.careerWrapper {
+  cursor: pointer;
+}
+
+.profilePane, 
+.fccPane, 
+.mentorshipPane, 
+.skillsPane,
+.socialPane,
+.careerPane {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.profilePane.hide, 
+.fccPane.hide, 
+.mentorshipPane.hide, 
+.skillsPane.hide,
+.socialPane.hide,
+.careerPane.hide {
+  overflow: hidden;
+  opacity: 0.01;
+  max-height: 0;
+  margin-bottom: 0;
+  transition:
+    opacity 400ms ease-out,
+    max-height 300ms ease;
+}
+
+.profilePane.show, 
+.fccPane.show, 
+.mentorshipPane.show, 
+.skillsPane.show,
+.socialPane.show,
+.careerPane.show {
+  opacity: 1.0;
+  max-height: 700px;
+  margin-bottom: 10px;
+  transition:
+    opacity 500ms ease-in,
+    max-height 400ms ease-out;
+}
+
