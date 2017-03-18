@@ -1,4 +1,21 @@
 // styles for components:
-.community, .mentorship, .chat {
+.community, .mentorship, {
   text-align: center;
+}
+
+#chat {
+  width: 65vw;
+  form {
+    margin-top: 25px;
+  }
+  button {
+    margin-top: 10px;
+  }
+
+  #messages-container {
+    // outline: 1px dotted;
+    // make chat container full width of parent
+    // set fixed height
+    // set overflow scroll
+  }
 }

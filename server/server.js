@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import redis from 'redis';
 import mongoose from 'mongoose';
 
 import passportRoute from './routes/passportLogin';
@@ -9,9 +10,16 @@ import gitLabRoute from './routes/gitLabRoute'
 
 dotenv.config();
 
-mongoose.Promise = global.Promise;
+// initialize redis
+export const client = redis.createClient();
+client.on('error', (err) => console.log(`Redis Error: ${err}`));
+client.on('ready', () => console.log('Redis connected'));
+
+// initialize mongoDB
+mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGO_URL, () => console.log('Connected via mongoose'));
 
+// initialize Express app and setup routes
 const app = express();
 app.use(bodyParser.json());
 
@@ -20,4 +28,10 @@ app.use(passportRoute);
 app.use(userRoute);
 app.use(gitLabRoute);
 
-app.listen(8080, () => console.log('Server is running on localhost:8080'));
+// initialize Express server
+const port = process.env.PORT || 8080;
+const server = app.listen(port, () => console.log(`Express Server is listening on port ${port}`));
+
+// initialize Socket.io chat server
+const io = require('socket.io')(server);
+require('./chat-server/chat.js')(io);
