@@ -2,6 +2,14 @@
   margin-bottom: 50px;
 }
 
+#saveButton {
+  float: right;
+  cursor: pointer;
+  &:hover {
+    color: rgb(10, 97, 89) !important;
+  }
+}
+
 .folderDetail:hover {
   cursor: pointer;
   i.folder.icon {
@@ -25,7 +33,8 @@
 .skillsPane,
 .socialPane,
 .careerPane,
-.collaborationPane {
+.collaborationPane,
+.mentorshipSkillsPane {
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -36,13 +45,11 @@
 .skillsPane.hide,
 .socialPane.hide,
 .careerPane.hide,
-.collaborationPane.hide {
-  overflow: hidden;
-  opacity: 0.01;
-  max-height: 0;
-  transition:
-    opacity 400ms ease-out,
-    max-height 300ms ease;
+.collaborationPane.hide,
+.mentorshipSkillsPane.hide,
+.surveyPaneWorking.hide,
+.surveyPaneLooking.hide {
+  @extend .profile-pane-transition-in;
 }
 
 .profilePane.show, 
@@ -51,12 +58,14 @@
 .skillsPane.show,
 .socialPane.show,
 .careerPane.show,
-.collaborationPane.show {
-  opacity: 1.0;
-  max-height: 700px;
-  margin-bottom: 10px !important;
-  transition:
-    opacity 500ms ease-in,
-    max-height 400ms ease-out;
+.collaborationPane.show,
+.mentorshipSkillsPane.show,
+.surveyPaneWorking.show,
+.surveyPaneLooking.show {
+  @extend .profile-pane-transition-out;
+}
+
+.fccPane.show {
+  margin-bottom: 8px !important;
 }
 

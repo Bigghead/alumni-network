@@ -1,16 +1,18 @@
 import React from 'react';
-import DividingHeader from '../../common/DividingHeader';
 import DropdownMultiSelect from '../../common/DropdownMultiSelect';
 import MessageBox from '../../common/MessageBox';
 
 import { skills, interests } from '../../../assets/data/dropdownOptions';
 
-const SkillsAndInterests = ({ showSkills, toggle, handleSkillsChange, handleInterestsChange }) => {
+const SkillsAndInterests = ({ showSkills, toggle, handleSkillsChange, handleInterestsChange, coreSkills, codingInterests }) => {
   return (
     <div>
       <div className="ui teal ribbon label skillsWrapper" onClick={() => { toggle('showSkills') }}>Skills & Interests</div>
       <div className={`skillsPane ${showSkills ? 'show' : 'hide'}`}>
-        <DividingHeader text="Core Skills" />
+        <h4 className="ui horizontal divider header">
+          <i className="checkmark box icon" />
+          Core Skills
+        </h4>
         <MessageBox
           type="info"
           dismissable={true}
@@ -18,8 +20,12 @@ const SkillsAndInterests = ({ showSkills, toggle, handleSkillsChange, handleInte
         <DropdownMultiSelect
           onChange={handleSkillsChange}
           options={skills}
-          placeholder="Choose Skills" />
-        <DividingHeader text="Coding Interests" />
+          placeholder="Choose Skills"
+          defaultValue={coreSkills} />
+        <h4 className="ui horizontal divider header">
+          <i className="checkmark box icon" />
+          Coding Interests
+        </h4>
         <MessageBox
           type="info"
           dismissable={true}
@@ -27,7 +33,8 @@ const SkillsAndInterests = ({ showSkills, toggle, handleSkillsChange, handleInte
         <DropdownMultiSelect
           onChange={handleInterestsChange}
           options={interests}
-          placeholder="Choose Interests" />
+          placeholder="Choose Interests"
+          defaultValue={codingInterests} />
       </div>
     </div>
   );

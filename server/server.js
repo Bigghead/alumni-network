@@ -19,6 +19,11 @@ client.on('ready', () => console.log('Redis connected'));
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGO_URL, () => console.log('Mongoose connected'));
 
+//===========Populating DB with user data=====
+import { mockData } from './helper_functions/mockData';
+// this will only save users if they don't exist locally yet...still need to remove for production though
+mockData();
+
 // initialize Express app and setup routes
 const app = express();
 app.use(bodyParser.json());
